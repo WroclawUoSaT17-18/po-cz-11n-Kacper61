@@ -1,0 +1,10 @@
+C:\Users\ADMIN\source\repos\loger final\loger final\bin\Debug\loger final.exe.config
+C:\Users\ADMIN\source\repos\loger final\loger final\bin\Debug\loger final.exe
+C:\Users\ADMIN\source\repos\loger final\loger final\bin\Debug\loger final.pdb
+C:\Users\ADMIN\source\repos\loger final\loger final\obj\Debug\loger final.csprojResolveAssemblyReference.cache
+C:\Users\ADMIN\source\repos\loger final\loger final\obj\Debug\loger_final.Form1.resources
+C:\Users\ADMIN\source\repos\loger final\loger final\obj\Debug\loger_final.Properties.Resources.resources
+C:\Users\ADMIN\source\repos\loger final\loger final\obj\Debug\loger final.csproj.GenerateResource.cache
+C:\Users\ADMIN\source\repos\loger final\loger final\obj\Debug\loger final.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\source\repos\loger final\loger final\obj\Debug\loger final.exe
+C:\Users\ADMIN\source\repos\loger final\loger final\obj\Debug\loger final.pdb

@@ -1,0 +1,7 @@
+C:\Users\ADMIN\source\repos\termo\termo\bin\Debug\termo.exe.config
+C:\Users\ADMIN\source\repos\termo\termo\bin\Debug\termo.exe
+C:\Users\ADMIN\source\repos\termo\termo\bin\Debug\termo.pdb
+C:\Users\ADMIN\source\repos\termo\termo\obj\Debug\termo.csprojResolveAssemblyReference.cache
+C:\Users\ADMIN\source\repos\termo\termo\obj\Debug\termo.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\source\repos\termo\termo\obj\Debug\termo.exe
+C:\Users\ADMIN\source\repos\termo\termo\obj\Debug\termo.pdb
