@@ -18,20 +18,133 @@ namespace loger_final
 {
     public partial class Form1 : Form
     {
+        komunikacja k2 = new komunikacja();
+        zapis z2 = new zapis();
+
         public Form1()
         {
+           
             InitializeComponent();
+            
+
+
+
+
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+          
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+       public void Form1_Load(object sender, EventArgs e)
+        {
+            string[] porty = SerialPort.GetPortNames();
+
+            int i = 0;
+            foreach (string port in porty)
+            {
+                listBox1.DataSource= porty;
+
+                i++;
+            }
+
+            string[] vs = { "w dół", "w górę" };
+            listBox2.DataSource = vs;
+            textBox1.Text = "c:/log/log.txt";
+            textBox2.Text = "0";
+            button2.Enabled=false;
+            button3.Enabled = false;
+                button4.Enabled = false;
+            button5.Enabled = false;
+        }
+
+        public void button1_Click(object sender, EventArgs e)
+        {
+           
+            
+            label5.Text= ( k2.rs(listBox1.SelectedItem.ToString())/10).ToString();
+            button3.Enabled = true;
+         
+           
+        }
+
+        public void button2_Click(object sender, EventArgs e)
+        {
+           
+            System.Timers.Timer aTimer;
+            aTimer = new System.Timers.Timer();
+            aTimer.Interval = 2000;
+
+            // Hook up the Elapsed event for the timer. 
+            aTimer.Elapsed += OnTimedEvent;
+
+            // Have the timer fire repeated events (true is the default)
+            aTimer.AutoReset = true;
+
+            // Start the timer
+            aTimer.Enabled = true;
+
+
+
+            void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs d)
+            {
+                
+                z2.dopisz(k2.Sprawdz(Convert.ToString(d.SignalTime)));
+                temp();
+                
+                
+            }
+
+        }
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        public void button4_Click(object sender, EventArgs e)
+        {
+            
+            
+            k2.kierunek(listBox2.SelectedIndex);
+            button5.Enabled = true;
+
+    }
+
+        public void button3_Click(object sender, EventArgs e)
+        {
+           
+            
+            z2.utworz(textBox1.Text);
+            button4.Enabled = true;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            
+            k2.nastawa (Int32.Parse(textBox2.Text));
+            button2.Enabled = true;
+            
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+     
+        public void temp()
+        {
+            label5.Text = (((k2.akttemp() / 10).ToString() + "C"));
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+
+        {
+            label5.Text = (((k2.akttemp() / 10).ToString() + "C"));
+        }
+
+        
     }
 
     public class komunikacja
@@ -53,18 +166,24 @@ namespace loger_final
 
             }
         }
-        public void rs(string a)
+        public float rs(string a)
         {
-            SerialPort port = new SerialPort(a,
-                    9600, Parity.None, 8, StopBits.One);
-            port.Open();
-            port.WriteLine("1");
-            Console.WriteLine(port.ReadLine());
-            port.WriteLine("3");
-            port.WriteLine("5");
-            port.WriteLine("7");
-            port.Close();
-            naz = a;
+            if (a != null)
+            {
+                float xx;
+                SerialPort port = new SerialPort(a,
+                        9600, Parity.None, 8, StopBits.One);
+                port.Open();
+                port.WriteLine("1");
+                xx= float.Parse(port.ReadLine());
+                port.WriteLine("3");
+                port.WriteLine("5");
+                port.WriteLine("7");
+                port.Close();
+                naz = a;
+                return xx;
+            }
+            return 0;
         }
         public void nastawa(int b)
         {
@@ -82,6 +201,7 @@ namespace loger_final
             int temp;
             SerialPort port1 = new SerialPort(naz,
                    9600, Parity.None, 8, StopBits.One);
+                   port1.Close();
             port1.Open();
             port1.WriteLine("1");
 
@@ -118,6 +238,19 @@ namespace loger_final
             port1.Close();
             return "a";
         }
+
+       public float akttemp()
+        {
+            float temp;
+            SerialPort port1 = new SerialPort(naz,
+                   9600, Parity.None, 8, StopBits.One);
+            port1.Open();
+            port1.WriteLine("1");
+
+            temp = float.Parse(port1.ReadLine());
+            port1.Close();
+            return temp;
+        }
     }
 
     class zapis
@@ -128,8 +261,8 @@ namespace loger_final
             naz = n;
             if (!File.Exists(n))
             {
-                //File.CreateText(n);
-                Console.WriteLine("log utworzony");
+                File.CreateText(n);
+                
 
 
             }
@@ -193,60 +326,7 @@ namespace loger_final
 
 
 
-    public static void Main(string[] args)
-    {
-
-
-
-        komunikacja k1 = new komunikacja();
-        zapis z1 = new zapis();
-        Console.WriteLine("dostępne porty");
-        k1.sprawdzporty();
-        Console.WriteLine("Wpisz port, pod którym jest logger");
-        k1.rs(Console.ReadLine());
-        Console.WriteLine("Podaj temperaturę progową");
-        k1.nastawa(Int32.Parse(Console.ReadLine()));
-        Console.WriteLine("Podaj kierunek przekroczenia ( 1- w górę, 0 - w dół");
-        k1.kierunek(Int32.Parse(Console.ReadLine()));
-        Console.WriteLine("Podaj ścieżkę do logu w formacie c:\\log\\nazwalogu.txt");
-
-        z1.utworz(Console.ReadLine());
-        System.Timers.Timer aTimer;
-        aTimer = new System.Timers.Timer();
-        aTimer.Interval = 2000;
-
-        // Hook up the Elapsed event for the timer. 
-        aTimer.Elapsed += OnTimedEvent;
-
-        // Have the timer fire repeated events (true is the default)
-        aTimer.AutoReset = true;
-
-        // Start the timer
-        aTimer.Enabled = true;
-
-
-        Console.ReadLine();
-
-        void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
-        {
-            Console.WriteLine("czas {0}", e.SignalTime);
-            z1.dopisz(k1.Sprawdz(Convert.ToString(e.SignalTime)));
-        }
-
-        /*    void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
-        {
-            Console.WriteLine("czas", e.SignalTime);
-                z1.dopisz(k1.Sprawdz());
-
-        }
-        */
-        Console.ReadKey();
-
-
-
-
-    }
-
+   
 
 
 }
