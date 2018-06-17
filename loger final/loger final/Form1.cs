@@ -13,6 +13,8 @@ using System.Timers;
 using System.IO;
 
 using System.IO.Ports;
+using NUnit.Framework;
+using NUnit.Framework.Internal;
 
 namespace loger_final
 {
@@ -32,10 +34,7 @@ namespace loger_final
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-          
-        }
+      
 
        public void Form1_Load(object sender, EventArgs e)
         {
@@ -89,11 +88,11 @@ namespace loger_final
 
             void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs d)
             {
-                
+               
                 z2.dopisz(k2.Sprawdz(Convert.ToString(d.SignalTime)));
                 temp();
-                
-                
+                wykres(Convert.ToString(d.SignalTime), k2.akttemp()/10);
+
             }
 
         }
@@ -101,7 +100,12 @@ namespace loger_final
         {
 
         }
-
+        public void wykres(string x, double y)
+        {
+            this.chart1.Series["T"].Points.AddXY(x,y);
+         
+            
+        }
         public void button4_Click(object sender, EventArgs e)
         {
             
@@ -141,7 +145,8 @@ namespace loger_final
         private void label5_Click(object sender, EventArgs e)
 
         {
-            label5.Text = (((k2.akttemp() / 10).ToString() + "C"));
+           
+            //  label5.Text = (((k2.akttemp() / 10).ToString() + "C"));
         }
 
         
@@ -185,10 +190,10 @@ namespace loger_final
             }
             return 0;
         }
-        public void nastawa(int b)
+        public int nastawa(int b)
         {
             t = b;
-
+            return t;
         }
         public void kierunek(int b)
         {
@@ -249,6 +254,7 @@ namespace loger_final
 
             temp = float.Parse(port1.ReadLine());
             port1.Close();
+            
             return temp;
         }
     }
@@ -325,7 +331,7 @@ namespace loger_final
 
 
 
-
+   
    
 
 

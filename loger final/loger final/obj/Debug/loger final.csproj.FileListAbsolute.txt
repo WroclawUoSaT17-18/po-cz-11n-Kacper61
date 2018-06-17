@@ -8,3 +8,7 @@ C:\Users\ADMIN\source\repos\loger final\loger final\obj\Debug\loger final.csproj
 C:\Users\ADMIN\source\repos\loger final\loger final\obj\Debug\loger final.csproj.CoreCompileInputs.cache
 C:\Users\ADMIN\source\repos\loger final\loger final\obj\Debug\loger final.exe
 C:\Users\ADMIN\source\repos\loger final\loger final\obj\Debug\loger final.pdb
+C:\Users\ADMIN\source\repos\loger final\loger final\bin\Debug\nunit.framework.dll
+C:\Users\ADMIN\source\repos\loger final\loger final\bin\Debug\nunit.framework.pdb
+C:\Users\ADMIN\source\repos\loger final\loger final\bin\Debug\nunit.framework.xml
+C:\Users\ADMIN\source\repos\loger final\loger final\obj\Debug\loger final.csproj.CopyComplete

@@ -1,0 +1,3 @@
+﻿1>------ Kompilacja rozpoczęta: Projekt: loger finalTests, Konfiguracja: Debug Any CPU ------
+1>  loger finalTests -> C:\Users\ADMIN\source\repos\loger final\loger finalTests\bin\Debug\loger finalTests.dll
+========== Kompilacja: 1 zakończono powodzeniem, 0 zakończono niepowodzeniem, 1 zaktualizowano, 0 pominięto ==========

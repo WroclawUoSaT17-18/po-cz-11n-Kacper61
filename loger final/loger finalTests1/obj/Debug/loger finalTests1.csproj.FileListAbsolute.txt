@@ -1,0 +1,12 @@
+C:\Users\ADMIN\source\repos\loger final\loger finalTests1\bin\Debug\loger finalTests1.dll
+C:\Users\ADMIN\source\repos\loger final\loger finalTests1\bin\Debug\loger finalTests1.pdb
+C:\Users\ADMIN\source\repos\loger final\loger finalTests1\bin\Debug\loger final.exe
+C:\Users\ADMIN\source\repos\loger final\loger finalTests1\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\ADMIN\source\repos\loger final\loger finalTests1\bin\Debug\loger final.pdb
+C:\Users\ADMIN\source\repos\loger final\loger finalTests1\bin\Debug\loger final.exe.config
+C:\Users\ADMIN\source\repos\loger final\loger finalTests1\bin\Debug\pl\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\ADMIN\source\repos\loger final\loger finalTests1\obj\Debug\loger finalTests1.csprojResolveAssemblyReference.cache
+C:\Users\ADMIN\source\repos\loger final\loger finalTests1\obj\Debug\loger finalTests1.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\source\repos\loger final\loger finalTests1\obj\Debug\loger finalTests1.csproj.CopyComplete
+C:\Users\ADMIN\source\repos\loger final\loger finalTests1\obj\Debug\loger finalTests1.dll
+C:\Users\ADMIN\source\repos\loger final\loger finalTests1\obj\Debug\loger finalTests1.pdb
